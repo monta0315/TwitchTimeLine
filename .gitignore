@@ -1,0 +1,63 @@
+# Xcode
+*.xcworkspace/
+xcuserdata/
+*.xcuserdatad/
+project.xcworkspace/xcshareddata/
+
+# Build products
+*.ipa
+*.xcarchive
+build/
+DerivedData/
+
+# Log files
+*.xcuserstate
+
+# User-specific files
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+# Temporary files
+*.dSYM
+*.playground
+
+# SwiftLint
+.swiftlint.yml
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+# CocoaPods
+Pods/
+
+# Swift Package Manager
+.build/
+Packages/
+
+# Firebase
+GoogleService-Info.plist
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+
+# Editor files
+*.xcodeproj/project.pbxproj.local
+*.xcplaygroundpage/
+
+# Localizable strings
+en.lproj/Localizable.strings
+
+# User-specific settings
+*.entitlements
+
+# Generated files
+# ... (add specific generated files here, e.g., SwiftUI previews)
+
+# Example of generated SwiftUI previews
+Previews/
