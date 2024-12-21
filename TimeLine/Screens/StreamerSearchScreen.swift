@@ -16,29 +16,28 @@ struct StreamerSearchScreen: View {
     ]
 
     var body: some View {
-        NavigationView {
-            List {
-                // Search Bar
+        List {
+            // Favorite Streamers Section
+            Section(header: Text("Favorite Streamers")) {
+                ForEach(filteredStreamers) { streamer in
+                    StreamerRow(streamer: streamer)
+                }
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
                 HStack {
                     Image(systemName: "magnifyingglass")
                         .foregroundColor(.gray)
                     TextField("Search", text: $searchText)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(width: UIScreen.main.bounds.width * 0.8, height: 32)
                 }
-                .padding()
+                .padding(5)
                 .background(Color(.systemGray6))
-
-                // Favorite Streamers Section
-                Section(header: Text("Favorite Streamers")) {
-                    ForEach(filteredStreamers) { streamer in
-                        StreamerRow(streamer: streamer)
-                    }
-                }
+                .cornerRadius(10)
             }
-            .navigationTitle("Search")
-            .navigationBarItems(trailing: Button(action: {}) {
-                Image(systemName: "star.fill")
-                    .foregroundColor(.blue)
-            })
         }
         .preferredColorScheme(.dark)
     }
@@ -52,4 +51,8 @@ struct StreamerSearchScreen: View {
             }
         }
     }
+}
+
+#Preview {
+    StreamerSearchScreen()
 }
