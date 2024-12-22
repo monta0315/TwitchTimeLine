@@ -9,6 +9,8 @@ import SwiftUI
 
 struct StreamerSearchScreen: View {
     @State private var searchText = ""
+    @FocusState private var isFocused: Bool
+
     let favoriteStreamers = [
         Streamer(name: "Ninja", games: ["Fortnite", "Call of Duty: Warzone"]),
         Streamer(name: "Ninja2", games: ["Fortnite", "Call of Duty: Warzone"]),
@@ -17,7 +19,6 @@ struct StreamerSearchScreen: View {
 
     var body: some View {
         List {
-            // Favorite Streamers Section
             Section(header: Text("Favorite Streamers")) {
                 ForEach(filteredStreamers) { streamer in
                     StreamerRow(streamer: streamer)
@@ -25,20 +26,7 @@ struct StreamerSearchScreen: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                HStack {
-                    Image(systemName: "magnifyingglass")
-                        .foregroundColor(.gray)
-                    TextField("Search", text: $searchText)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .frame(width: UIScreen.main.bounds.width * 0.8, height: 32)
-                }
-                .padding(5)
-                .background(Color(.systemGray6))
-                .cornerRadius(10)
-            }
-        }
+        .toolbar(content: toolBar)
         .preferredColorScheme(.dark)
     }
 
@@ -48,6 +36,31 @@ struct StreamerSearchScreen: View {
         } else {
             return favoriteStreamers.filter { streamer in
                 streamer.name.lowercased().contains(searchText.lowercased())
+            }
+        }
+    }
+
+    @ToolbarContentBuilder
+    private func toolBar() -> some ToolbarContent {
+        ToolbarItem(placement: .navigationBarLeading) {
+            HStack {
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(.gray)
+                TextField("Search", text: $searchText)
+                    .focused($isFocused)
+                    .frame(width: isFocused ? (UIScreen.main.bounds.width * 0.8 - 80) : UIScreen.main.bounds.width * 0.8, height: 32, alignment: .leading)
+            }
+            .padding(5)
+            .background(Color(.systemGray6))
+            .cornerRadius(10)
+        }
+        if isFocused {
+            ToolbarItem(placement: .cancellationAction) {
+                Button("キャンセル") {
+                    searchText = ""
+                    isFocused = false
+                }
+                .frame(width: 72, height: 32)
             }
         }
     }
