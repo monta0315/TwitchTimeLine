@@ -56,11 +56,14 @@ struct StreamerSearchScreen: View {
         }
         if isFocused {
             ToolbarItem(placement: .cancellationAction) {
-                Button("キャンセル") {
-                    searchText = ""
-                    isFocused = false
+                HStack {
+                    Spacer(minLength: 8)
+                    Button("キャンセル") {
+                        searchText = ""
+                        isFocused = false
+                    }
+                    .frame(width: 72, height: 32)
                 }
-                .frame(width: 72, height: 32)
             }
         }
     }
