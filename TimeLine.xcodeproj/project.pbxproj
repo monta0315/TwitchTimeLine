@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C61F7B62D20F85A00A92932 /* TabWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C61F7B52D20F85A00A92932 /* TabWrapperView.swift */; };
+		5C61F7B82D21030300A92932 /* VideoDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C61F7B72D21030300A92932 /* VideoDetailScreen.swift */; };
 		5C8946292D0ED97700FD32ED /* TimeLineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8946282D0ED97700FD32ED /* TimeLineApp.swift */; };
 		5C89462B2D0ED97700FD32ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C89462A2D0ED97700FD32ED /* ContentView.swift */; };
 		5C89462D2D0ED97900FD32ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C89462C2D0ED97900FD32ED /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		5C61F7B52D20F85A00A92932 /* TabWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabWrapperView.swift; sourceTree = "<group>"; };
+		5C61F7B72D21030300A92932 /* VideoDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailScreen.swift; sourceTree = "<group>"; };
 		5C8946252D0ED97700FD32ED /* TimeLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C8946282D0ED97700FD32ED /* TimeLineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineApp.swift; sourceTree = "<group>"; };
 		5C89462A2D0ED97700FD32ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				5C8946362D0ED9AB00FD32ED /* StreamerSearchScreen.swift */,
 				5C89463F2D0EDD5000FD32ED /* TimeLineScreen.swift */,
+				5C61F7B72D21030300A92932 /* VideoDetailScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				5C89462B2D0ED97700FD32ED /* ContentView.swift in Sources */,
 				5C8946292D0ED97700FD32ED /* TimeLineApp.swift in Sources */,
 				5C8946462D0EE5CC00FD32ED /* RootView.swift in Sources */,
+				5C61F7B82D21030300A92932 /* VideoDetailScreen.swift in Sources */,
 				5C8946402D0EDD5000FD32ED /* TimeLineScreen.swift in Sources */,
 				5C89463D2D0EDD0900FD32ED /* Video.swift in Sources */,
 				5C8946442D0EDF5E00FD32ED /* StreamerRow.swift in Sources */,

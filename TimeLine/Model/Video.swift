@@ -11,5 +11,7 @@ struct Video: Identifiable {
     let title: String
     let category: String
     let thumbnailImage: String // Assuming you have image URLs
+    let videoURL: String
     let viewCount: Int
+    let streamerName: String
 }

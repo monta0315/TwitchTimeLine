@@ -31,5 +31,5 @@ struct VideoRow: View {
 }
 
 #Preview {
-    VideoRow(video: Video(title: "The War of the Ring - Part 1", category: "Gaming", thumbnailImage: "war_of_the_ring.jpg", viewCount: 2300))
+    VideoRow(video: Video(title: "The War of the Ring - Part 1", category: "Gaming", thumbnailImage: "war_of_the_ring.jpg", videoURL: "https://youtu.be/El0qgOa0BW4?si=ZoVUeNb7sdTx21FG", viewCount: 2300, streamerName: "a"))
 }
