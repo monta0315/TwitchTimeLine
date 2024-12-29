@@ -13,21 +13,6 @@ struct RootView: View {
     @StateObject private var coordinator = Coordinator()
 
     var body: some View {
-        VStack {
-            NavigationStack(path: $coordinator.path) {
-                VStack {
-                    TimeLineScreen()
-                }
-                .navigationDestination(for: String.self) { id in
-                    if id == String(describing: TimeLineScreen.self) {
-                        TimeLineScreen()
-                    }
-                    else if id == String(describing: StreamerSearchScreen.self) {
-                        StreamerSearchScreen()
-                    }
-                }
-            }
-            .environmentObject(coordinator)
-        }
+        TabWrapperView()
     }
 }

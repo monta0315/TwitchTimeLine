@@ -18,16 +18,18 @@ struct StreamerSearchScreen: View {
     ]
 
     var body: some View {
-        List {
-            Section(header: Text("Favorite Streamers")) {
-                ForEach(filteredStreamers) { streamer in
-                    StreamerRow(streamer: streamer)
+        NavigationView {
+            List {
+                Section(header: Text("Favorite Streamers")) {
+                    ForEach(filteredStreamers) { streamer in
+                        StreamerRow(streamer: streamer)
+                    }
                 }
             }
+            .navigationBarBackButtonHidden(true)
+            .toolbar(content: toolBar)
+            .preferredColorScheme(.dark)
         }
-        .navigationBarBackButtonHidden(true)
-        .toolbar(content: toolBar)
-        .preferredColorScheme(.dark)
     }
 
     var filteredStreamers: [Streamer] {

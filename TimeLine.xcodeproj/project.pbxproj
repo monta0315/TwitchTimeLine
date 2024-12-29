@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C61F7B62D20F85A00A92932 /* TabWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C61F7B52D20F85A00A92932 /* TabWrapperView.swift */; };
 		5C8946292D0ED97700FD32ED /* TimeLineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8946282D0ED97700FD32ED /* TimeLineApp.swift */; };
 		5C89462B2D0ED97700FD32ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C89462A2D0ED97700FD32ED /* ContentView.swift */; };
 		5C89462D2D0ED97900FD32ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C89462C2D0ED97900FD32ED /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C61F7B52D20F85A00A92932 /* TabWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabWrapperView.swift; sourceTree = "<group>"; };
 		5C8946252D0ED97700FD32ED /* TimeLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C8946282D0ED97700FD32ED /* TimeLineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineApp.swift; sourceTree = "<group>"; };
 		5C89462A2D0ED97700FD32ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				5C89462E2D0ED97900FD32ED /* Preview Content */,
 				5C8946452D0EE5CC00FD32ED /* RootView.swift */,
 				5C8946472D0EE5F600FD32ED /* Coordinator.swift */,
+				5C61F7B52D20F85A00A92932 /* TabWrapperView.swift */,
 			);
 			path = TimeLine;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				5C89463A2D0EDC9800FD32ED /* VideoRow.swift in Sources */,
 				5C8946482D0EE5F600FD32ED /* Coordinator.swift in Sources */,
 				5C8946372D0ED9AB00FD32ED /* StreamerSearchScreen.swift in Sources */,
+				5C61F7B62D20F85A00A92932 /* TabWrapperView.swift in Sources */,
 				5C89462B2D0ED97700FD32ED /* ContentView.swift in Sources */,
 				5C8946292D0ED97700FD32ED /* TimeLineApp.swift in Sources */,
 				5C8946462D0EE5CC00FD32ED /* RootView.swift in Sources */,

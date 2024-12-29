@@ -19,45 +19,22 @@ struct TimeLineScreen: View {
 
     var body: some View {
         NavigationView {
-            List {
-                Section(header: Text("Today")) {
-                    ForEach(videos.prefix(3)) { video in // Assuming first 3 are for Today
-                        VideoRow(video: video)
+                List {
+                    Section(header: Text("Today")) {
+                        ForEach(videos.prefix(3)) { video in // Assuming first 3 are for Today
+                            VideoRow(video: video)
+                        }
                     }
-                }
 
-                Section(header: Text("Yesterday")) {
-                    ForEach(videos.dropFirst(3)) { video in // Assuming rest are for Yesterday
-                        VideoRow(video: video)
+                    Section(header: Text("Yesterday")) {
+                        ForEach(videos.dropFirst(3)) { video in // Assuming rest are for Yesterday
+                            VideoRow(video: video)
+                        }
                     }
                 }
+                .navigationTitle("Timeline")
             }
-            .navigationTitle("Timeline")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        coordinator.path.append(String(describing: StreamerSearchScreen.self))
-                    }) {
-                        Image(systemName: "magnifyingglass")
-                    }
-                }
-            }
-
-            // Add bottom tab bar using TabView
-            TabView {
-                Text("Home")
-                    .tabItem {
-                        Image(systemName: "house")
-                        Text("Home")
-                    }
-                Text("Browse")
-                    .tabItem {
-                        Image(systemName: "magnifyingglass")
-                        Text("Browse")
-                    }
-                // ... other tab items
-            }
-        }.preferredColorScheme(.dark)
+        .preferredColorScheme(.dark)
     }
 }
 
