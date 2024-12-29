@@ -10,35 +10,27 @@ import SwiftUI
 struct StreamerSearchScreen: View {
     @State private var searchText = ""
     @FocusState private var isFocused: Bool
-
-    let favoriteStreamers = [
-        Streamer(name: "Ninja", games: ["Fortnite", "Call of Duty: Warzone"]),
-        Streamer(name: "Ninja2", games: ["Fortnite", "Call of Duty: Warzone"]),
-        Streamer(name: "Ninja3", games: ["Fortnite", "Call of Duty: Warzone"])
-    ]
+    @ObservedObject private var viewModel = StreamerSearchViewModel()
+    @State private var isLoading = false
 
     var body: some View {
         NavigationView {
             List {
+                Section(header: Text("Searched Streamers")) {
+                    ForEach(viewModel.searchedStreamers) { streamer in
+                        StreamerRow(streamer: streamer)
+                    }
+                }
                 Section(header: Text("Favorite Streamers")) {
-                    ForEach(filteredStreamers) { streamer in
+                    ForEach(viewModel.favoriteStreamers) { streamer in
                         StreamerRow(streamer: streamer)
                     }
                 }
             }
             .navigationBarBackButtonHidden(true)
             .toolbar(content: toolBar)
+            .overlay(isLoading ? ProgressView() : nil)
             .preferredColorScheme(.dark)
-        }
-    }
-
-    var filteredStreamers: [Streamer] {
-        if searchText.isEmpty {
-            return favoriteStreamers
-        } else {
-            return favoriteStreamers.filter { streamer in
-                streamer.name.lowercased().contains(searchText.lowercased())
-            }
         }
     }
 
@@ -50,6 +42,13 @@ struct StreamerSearchScreen: View {
                     .foregroundColor(.gray)
                 TextField("Search", text: $searchText)
                     .focused($isFocused)
+                    .onSubmit {
+                        Task {
+                            isLoading = true
+                            await viewModel.getSearchedStreamers(searchText)
+                            isLoading = false
+                        }
+                    }
                     .frame(width: isFocused ? (UIScreen.main.bounds.width * 0.8 - 80) : UIScreen.main.bounds.width * 0.8, height: 32, alignment: .leading)
             }
             .padding(5)
@@ -73,4 +72,28 @@ struct StreamerSearchScreen: View {
 
 #Preview {
     StreamerSearchScreen()
+}
+
+class StreamerSearchViewModel: ObservableObject {
+    let favoriteStreamers = [
+        Streamer(name: "Ninja", games: ["Fortnite", "Call of Duty: Warzone"]),
+        Streamer(name: "Ninja2", games: ["Fortnite", "Call of Duty: Warzone"]),
+        Streamer(name: "Ninja3", games: ["Fortnite", "Call of Duty: Warzone"])
+    ]
+
+    @Published var searchedStreamers: [Streamer] = []
+
+    func getSearchedStreamers(_ searchText: String) async {
+        searchedStreamers = []
+        
+        let result = [
+            Streamer(name: "Ninja", games: ["Fortnite", "Call of Duty: Warzone"]),
+            Streamer(name: "Ninja2", games: ["Fortnite", "Call of Duty: Warzone"]),
+            Streamer(name: "Ninja3", games: ["Fortnite", "Call of Duty: Warzone"])
+        ]
+
+        try? await Task.sleep(for: .seconds(2))
+
+        searchedStreamers.append(contentsOf: result)
+    }
 }
