@@ -29,5 +29,5 @@ struct StreamerRow: View {
 }
 
 #Preview {
-    StreamerRow(streamer: Streamer(name: "Ninja", games: ["Fortnite", "Call of Duty: Warzone"]))
+    StreamerRow(streamer: TestData.testStreamer)
 }

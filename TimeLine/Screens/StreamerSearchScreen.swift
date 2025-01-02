@@ -18,12 +18,16 @@ struct StreamerSearchScreen: View {
             List {
                 Section(header: Text("Searched Streamers")) {
                     ForEach(viewModel.searchedStreamers) { streamer in
-                        StreamerRow(streamer: streamer)
+                        NavigationLink(destination: StreamerDetailScreen(streamer: streamer)) {
+                            StreamerRow(streamer: streamer)
+                        }
                     }
                 }
                 Section(header: Text("Favorite Streamers")) {
                     ForEach(viewModel.favoriteStreamers) { streamer in
-                        StreamerRow(streamer: streamer)
+                        NavigationLink(destination: StreamerDetailScreen(streamer: streamer)) {
+                            StreamerRow(streamer: streamer)
+                        }
                     }
                 }
             }
@@ -76,20 +80,21 @@ struct StreamerSearchScreen: View {
 
 class StreamerSearchViewModel: ObservableObject {
     let favoriteStreamers = [
-        Streamer(name: "Ninja", games: ["Fortnite", "Call of Duty: Warzone"]),
-        Streamer(name: "Ninja2", games: ["Fortnite", "Call of Duty: Warzone"]),
-        Streamer(name: "Ninja3", games: ["Fortnite", "Call of Duty: Warzone"])
+        TestData.testStreamer,
+        TestData.testStreamer,
+        TestData.testStreamer,
+        TestData.testStreamer
     ]
 
     @Published var searchedStreamers: [Streamer] = []
 
     func getSearchedStreamers(_ searchText: String) async {
         searchedStreamers = []
-        
+
         let result = [
-            Streamer(name: "Ninja", games: ["Fortnite", "Call of Duty: Warzone"]),
-            Streamer(name: "Ninja2", games: ["Fortnite", "Call of Duty: Warzone"]),
-            Streamer(name: "Ninja3", games: ["Fortnite", "Call of Duty: Warzone"])
+            TestData.testStreamer,
+            TestData.testStreamer,
+            TestData.testStreamer
         ]
 
         try? await Task.sleep(for: .seconds(2))
