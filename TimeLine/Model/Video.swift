@@ -14,4 +14,5 @@ struct Video: Identifiable {
     let videoURL: String
     let viewCount: Int
     let streamerName: String
+    let started_at: Date
 }

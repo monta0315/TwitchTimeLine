@@ -8,27 +8,37 @@
 import SwiftUI
 
 struct TimeLineScreen: View {
-    // Sample data (replace with your actual data)
-    let videos: [Video] = [
-        Video(title: "The War of the Ring - Part 1", category: "Gaming", thumbnailImage: "war_of_the_ring.jpg", videoURL: "https://youtu.be/El0qgOa0BW4?si=ZoVUeNb7sdTx21FG", viewCount: 2300, streamerName: "a"),
-        Video(title: "The War of the Ring - Part 1", category: "Gaming", thumbnailImage: "war_of_the_ring.jpg", videoURL: "https://youtu.be/El0qgOa0BW4?si=ZoVUeNb7sdTx21FG", viewCount: 2300, streamerName: "a"),
-        Video(title: "The War of the Ring - Part 1", category: "Gaming", thumbnailImage: "war_of_the_ring.jpg", videoURL: "https://youtu.be/El0qgOa0BW4?si=ZoVUeNb7sdTx21FG", viewCount: 2300, streamerName: "a"),
-        // ... add more videos for Yesterday and Today
-    ]
+    @ObservedObject var viewModel = TimelineScreenViewModel()
 
     var body: some View {
         NavigationView {
+            if viewModel.isLoading {
+                ProgressView()
+            } else {
                 List {
                     Section(header: Text("Today")) {
-                        ForEach(videos.prefix(3)) { video in // Assuming first 3 are for Today
+                        ForEach(viewModel.today) { video in // Assuming first 3 are for Today
                             NavigationLink(destination: VideoDetailScreen(video: video)) {
                                 VideoRow(video: video)
                             }
                         }
                     }
-
                     Section(header: Text("Yesterday")) {
-                        ForEach(videos.dropFirst(3)) { video in // Assuming rest are for Yesterday
+                        ForEach(viewModel.yesterday) { video in // Assuming rest are for Yesterday
+                            NavigationLink(destination: VideoDetailScreen(video: video)) {
+                                VideoRow(video: video)
+                            }
+                        }
+                    }
+                    Section(header: Text("Within A Week")) {
+                        ForEach(viewModel.aWeek) { video in // Assuming rest are for Yesterday
+                            NavigationLink(destination: VideoDetailScreen(video: video)) {
+                                VideoRow(video: video)
+                            }
+                        }
+                    }
+                    Section(header: Text("Past")) {
+                        ForEach(viewModel.past) { video in // Assuming rest are for Yesterday
                             NavigationLink(destination: VideoDetailScreen(video: video)) {
                                 VideoRow(video: video)
                             }
@@ -37,6 +47,12 @@ struct TimeLineScreen: View {
                 }
                 .navigationTitle("Timeline")
             }
+        }
+        .onAppear {
+            Task {
+                await viewModel.getTimelineVideos()
+            }
+        }
         .preferredColorScheme(.dark)
     }
 }

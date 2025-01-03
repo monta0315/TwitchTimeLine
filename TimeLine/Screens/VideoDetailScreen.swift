@@ -60,10 +60,5 @@ struct VideoDetailScreen: View {
 }
 
 #Preview {
-    let sampleVideo = Video(
-        title: "Minecraft Gameplay", category: "game",
-        thumbnailImage: "war_of_the_ring.jpg", videoURL: "https://youtu.be/El0qgOa0BW4?si=ZoVUeNb7sdTx21FG",
-        viewCount: 1000, streamerName: "JaneCrafter"
-    )
-    return VideoDetailScreen(video: sampleVideo)
+    return VideoDetailScreen(video: TestData.testVideo())
 }
