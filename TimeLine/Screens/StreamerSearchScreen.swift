@@ -16,17 +16,30 @@ struct StreamerSearchScreen: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Searched Streamers")) {
-                    ForEach(viewModel.searchedStreamers) { streamer in
-                        NavigationLink(destination: StreamerDetailScreen(streamer: streamer)) {
-                            StreamerRow(streamer: streamer)
+                if !viewModel.searchedStreamers.isEmpty {
+                    Section(header: Text("Searched Streamers")) {
+                        ForEach(viewModel.searchedStreamers) { streamer in
+                            NavigationLink(destination: StreamerDetailScreen(streamer: streamer)) {
+                                StreamerRow(streamer: streamer)
+                            }
                         }
                     }
                 }
-                Section(header: Text("Favorite Streamers")) {
-                    ForEach(viewModel.favoriteStreamers) { streamer in
-                        NavigationLink(destination: StreamerDetailScreen(streamer: streamer)) {
-                            StreamerRow(streamer: streamer)
+                if !viewModel.favoriteStreamers.isEmpty {
+                    Section(header: Text("Favorite Streamers")) {
+                        ForEach(viewModel.favoriteStreamers) { streamer in
+                            NavigationLink(destination: StreamerDetailScreen(streamer: streamer)) {
+                                StreamerRow(streamer: streamer)
+                            }
+                        }
+                    }
+                }
+                if !viewModel.recommendStreamers.isEmpty {
+                    Section(header: Text("Recommend Streamers")) {
+                        ForEach(viewModel.favoriteStreamers) { streamer in
+                            NavigationLink(destination: StreamerDetailScreen(streamer: streamer)) {
+                                StreamerRow(streamer: streamer)
+                            }
                         }
                     }
                 }
@@ -80,6 +93,13 @@ struct StreamerSearchScreen: View {
 
 class StreamerSearchViewModel: ObservableObject {
     let favoriteStreamers = [
+        TestData.testStreamer,
+        TestData.testStreamer,
+        TestData.testStreamer,
+        TestData.testStreamer
+    ]
+
+    let recommendStreamers = [
         TestData.testStreamer,
         TestData.testStreamer,
         TestData.testStreamer,

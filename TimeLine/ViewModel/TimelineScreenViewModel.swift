@@ -40,7 +40,7 @@ class TimelineScreenViewModel: ObservableObject {
     func getTimelineVideos() async {
         // TODO: Will update to handle result function
         isLoading = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in // Simulate API call delay
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [self] in // Simulate API call delay
             self.videos = [
                 TestData.testVideo(),
                 TestData.testVideo(),
