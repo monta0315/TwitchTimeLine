@@ -10,15 +10,14 @@ import SwiftUI
 struct TimeLineScreen: View {
     @ObservedObject var viewModel = TimelineScreenViewModel()
     @State private var viewDidLoad = false
+    // TODO: isLoading doesn't work...?
+    @State private var isLoading = false
 
     var body: some View {
         NavigationView {
-            if viewModel.isLoading {
-                ProgressView()
-            } else {
-                timeLines
-                .navigationTitle("Timeline")
-            }
+            timeLines
+            .navigationTitle("Timeline")
+            .overlay(isLoading ? ProgressView() : nil)
         }
         .onAppear {
             guard !viewDidLoad else {
@@ -26,12 +25,16 @@ struct TimeLineScreen: View {
             }
             Task {
                 viewDidLoad = true
+                isLoading = true
                 await viewModel.getTimelineVideos()
+                isLoading = false
             }
         }
         .refreshable {
-            guard !viewModel.isLoading else { return }
+            guard !isLoading else { return }
+            isLoading = true
             await viewModel.getTimelineVideos()
+            isLoading = false
         }
         .preferredColorScheme(.dark)
     }

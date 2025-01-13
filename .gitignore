@@ -45,6 +45,7 @@ GoogleService-Info.plist
 .env.local
 .env.development
 .env.production
+Secrets.xcconfig
 
 # Editor files
 *.xcodeproj/project.pbxproj.local

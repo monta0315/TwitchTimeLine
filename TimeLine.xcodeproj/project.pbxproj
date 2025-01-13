@@ -12,6 +12,7 @@
 		5C61F7BC2D26824B00A92932 /* StreamerDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C61F7BB2D26824B00A92932 /* StreamerDetailScreen.swift */; };
 		5C61F7BE2D26890000A92932 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C61F7BD2D26890000A92932 /* TestData.swift */; };
 		5C61F7C32D27B25200A92932 /* TimelineScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C61F7C22D27B25200A92932 /* TimelineScreenViewModel.swift */; };
+		5C61F7C52D2917D500A92932 /* StreamerSearchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C61F7C42D2917D500A92932 /* StreamerSearchScreenViewModel.swift */; };
 		5C8946292D0ED97700FD32ED /* TimeLineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8946282D0ED97700FD32ED /* TimeLineApp.swift */; };
 		5C89462B2D0ED97700FD32ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C89462A2D0ED97700FD32ED /* ContentView.swift */; };
 		5C89462D2D0ED97900FD32ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C89462C2D0ED97900FD32ED /* Assets.xcassets */; };
@@ -24,6 +25,13 @@
 		5C8946442D0EDF5E00FD32ED /* StreamerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8946432D0EDF5E00FD32ED /* StreamerRow.swift */; };
 		5C8946462D0EE5CC00FD32ED /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8946452D0EE5CC00FD32ED /* RootView.swift */; };
 		5C8946482D0EE5F600FD32ED /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8946472D0EE5F600FD32ED /* Coordinator.swift */; };
+		5C9B5B802D34FC0E003D2F4C /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 5C9B5B7F2D34FC0E003D2F4C /* Auth */; };
+		5C9B5B822D34FC0E003D2F4C /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 5C9B5B812D34FC0E003D2F4C /* Functions */; };
+		5C9B5B842D34FC0E003D2F4C /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 5C9B5B832D34FC0E003D2F4C /* PostgREST */; };
+		5C9B5B862D34FC0E003D2F4C /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 5C9B5B852D34FC0E003D2F4C /* Realtime */; };
+		5C9B5B882D34FC0E003D2F4C /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 5C9B5B872D34FC0E003D2F4C /* Storage */; };
+		5C9B5B8A2D34FDA2003D2F4C /* SupabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B5B892D34FDA2003D2F4C /* SupabaseManager.swift */; };
+		5C9B5B8D2D34FDDF003D2F4C /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 5C9B5B8C2D34FDDF003D2F4C /* Supabase */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +40,7 @@
 		5C61F7BB2D26824B00A92932 /* StreamerDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamerDetailScreen.swift; sourceTree = "<group>"; };
 		5C61F7BD2D26890000A92932 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		5C61F7C22D27B25200A92932 /* TimelineScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineScreenViewModel.swift; sourceTree = "<group>"; };
+		5C61F7C42D2917D500A92932 /* StreamerSearchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamerSearchScreenViewModel.swift; sourceTree = "<group>"; };
 		5C8946252D0ED97700FD32ED /* TimeLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C8946282D0ED97700FD32ED /* TimeLineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineApp.swift; sourceTree = "<group>"; };
 		5C89462A2D0ED97700FD32ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +54,8 @@
 		5C8946432D0EDF5E00FD32ED /* StreamerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamerRow.swift; sourceTree = "<group>"; };
 		5C8946452D0EE5CC00FD32ED /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		5C8946472D0EE5F600FD32ED /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		5C9B5B892D34FDA2003D2F4C /* SupabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseManager.swift; sourceTree = "<group>"; };
+		5C9B5B8E2D350133003D2F4C /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +63,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C9B5B842D34FC0E003D2F4C /* PostgREST in Frameworks */,
+				5C9B5B822D34FC0E003D2F4C /* Functions in Frameworks */,
+				5C9B5B8D2D34FDDF003D2F4C /* Supabase in Frameworks */,
+				5C9B5B802D34FC0E003D2F4C /* Auth in Frameworks */,
+				5C9B5B882D34FC0E003D2F4C /* Storage in Frameworks */,
+				5C9B5B862D34FC0E003D2F4C /* Realtime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				5C61F7C22D27B25200A92932 /* TimelineScreenViewModel.swift */,
+				5C61F7C42D2917D500A92932 /* StreamerSearchScreenViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -69,8 +87,10 @@
 		5C89461C2D0ED97700FD32ED = {
 			isa = PBXGroup;
 			children = (
+				5C9B5B8E2D350133003D2F4C /* Secrets.xcconfig */,
 				5C8946272D0ED97700FD32ED /* TimeLine */,
 				5C8946262D0ED97700FD32ED /* Products */,
+				5C9B5B8B2D34FDDF003D2F4C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +117,7 @@
 				5C8946472D0EE5F600FD32ED /* Coordinator.swift */,
 				5C61F7B52D20F85A00A92932 /* TabWrapperView.swift */,
 				5C61F7BD2D26890000A92932 /* TestData.swift */,
+				5C9B5B892D34FDA2003D2F4C /* SupabaseManager.swift */,
 			);
 			path = TimeLine;
 			sourceTree = "<group>";
@@ -138,6 +159,13 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
+		5C9B5B8B2D34FDDF003D2F4C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -154,6 +182,14 @@
 			dependencies = (
 			);
 			name = TimeLine;
+			packageProductDependencies = (
+				5C9B5B7F2D34FC0E003D2F4C /* Auth */,
+				5C9B5B812D34FC0E003D2F4C /* Functions */,
+				5C9B5B832D34FC0E003D2F4C /* PostgREST */,
+				5C9B5B852D34FC0E003D2F4C /* Realtime */,
+				5C9B5B872D34FC0E003D2F4C /* Storage */,
+				5C9B5B8C2D34FDDF003D2F4C /* Supabase */,
+			);
 			productName = TimeLine;
 			productReference = 5C8946252D0ED97700FD32ED /* TimeLine.app */;
 			productType = "com.apple.product-type.application";
@@ -182,6 +218,9 @@
 				Base,
 			);
 			mainGroup = 5C89461C2D0ED97700FD32ED;
+			packageReferences = (
+				5C9B5B7E2D34FC0E003D2F4C /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
 			productRefGroup = 5C8946262D0ED97700FD32ED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -209,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C61F7BC2D26824B00A92932 /* StreamerDetailScreen.swift in Sources */,
+				5C9B5B8A2D34FDA2003D2F4C /* SupabaseManager.swift in Sources */,
 				5C8946422D0EDF2900FD32ED /* Streamer.swift in Sources */,
 				5C89463A2D0EDC9800FD32ED /* VideoRow.swift in Sources */,
 				5C8946482D0EE5F600FD32ED /* Coordinator.swift in Sources */,
@@ -219,6 +259,7 @@
 				5C89462B2D0ED97700FD32ED /* ContentView.swift in Sources */,
 				5C8946292D0ED97700FD32ED /* TimeLineApp.swift in Sources */,
 				5C8946462D0EE5CC00FD32ED /* RootView.swift in Sources */,
+				5C61F7C52D2917D500A92932 /* StreamerSearchScreenViewModel.swift in Sources */,
 				5C61F7B82D21030300A92932 /* VideoDetailScreen.swift in Sources */,
 				5C8946402D0EDD5000FD32ED /* TimeLineScreen.swift in Sources */,
 				5C89463D2D0EDD0900FD32ED /* Video.swift in Sources */,
@@ -428,6 +469,50 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5C9B5B7E2D34FC0E003D2F4C /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.24.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5C9B5B7F2D34FC0E003D2F4C /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C9B5B7E2D34FC0E003D2F4C /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		5C9B5B812D34FC0E003D2F4C /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C9B5B7E2D34FC0E003D2F4C /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		5C9B5B832D34FC0E003D2F4C /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C9B5B7E2D34FC0E003D2F4C /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		5C9B5B852D34FC0E003D2F4C /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C9B5B7E2D34FC0E003D2F4C /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		5C9B5B872D34FC0E003D2F4C /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C9B5B7E2D34FC0E003D2F4C /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		5C9B5B8C2D34FDDF003D2F4C /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C9B5B7E2D34FC0E003D2F4C /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5C89461D2D0ED97700FD32ED /* Project object */;
 }

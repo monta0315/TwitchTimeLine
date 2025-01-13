@@ -15,35 +15,7 @@ struct StreamerSearchScreen: View {
 
     var body: some View {
         NavigationView {
-            List {
-                if !viewModel.searchedStreamers.isEmpty {
-                    Section(header: Text("Searched Streamers")) {
-                        ForEach(viewModel.searchedStreamers) { streamer in
-                            NavigationLink(destination: StreamerDetailScreen(streamer: streamer)) {
-                                StreamerRow(streamer: streamer)
-                            }
-                        }
-                    }
-                }
-                if !viewModel.favoriteStreamers.isEmpty {
-                    Section(header: Text("Favorite Streamers")) {
-                        ForEach(viewModel.favoriteStreamers) { streamer in
-                            NavigationLink(destination: StreamerDetailScreen(streamer: streamer)) {
-                                StreamerRow(streamer: streamer)
-                            }
-                        }
-                    }
-                }
-                if !viewModel.recommendStreamers.isEmpty {
-                    Section(header: Text("Recommend Streamers")) {
-                        ForEach(viewModel.favoriteStreamers) { streamer in
-                            NavigationLink(destination: StreamerDetailScreen(streamer: streamer)) {
-                                StreamerRow(streamer: streamer)
-                            }
-                        }
-                    }
-                }
-            }
+            streamersLists
             .navigationBarBackButtonHidden(true)
             .toolbar(content: toolBar)
             .overlay(isLoading ? ProgressView() : nil)
@@ -59,14 +31,14 @@ struct StreamerSearchScreen: View {
                     .foregroundColor(.gray)
                 TextField("Search", text: $searchText)
                     .focused($isFocused)
-                    .onSubmit {
-                        Task {
-                            isLoading = true
-                            await viewModel.getSearchedStreamers(searchText)
-                            isLoading = false
-                        }
-                    }
-                    .frame(width: isFocused ? (UIScreen.main.bounds.width * 0.8 - 80) : UIScreen.main.bounds.width * 0.8, height: 32, alignment: .leading)
+                    .frame(width: isFocused ? (UIScreen.main.bounds.width * 0.8 - 72) : UIScreen.main.bounds.width * 0.8, height: 32, alignment: .leading)
+            }
+            .onSubmit {
+                Task {
+                    isLoading = true
+                    await viewModel.getSearchedStreamers(searchText)
+                    isLoading = false
+                }
             }
             .padding(5)
             .background(Color(.systemGray6))
@@ -75,12 +47,43 @@ struct StreamerSearchScreen: View {
         if isFocused {
             ToolbarItem(placement: .cancellationAction) {
                 HStack {
-                    Spacer(minLength: 8)
                     Button("キャンセル") {
                         searchText = ""
                         isFocused = false
                     }
-                    .frame(width: 72, height: 32)
+                    .frame(width: 72, height: 32, alignment: .leading)
+                }
+            }
+        }
+    }
+
+    private var streamersLists: some View {
+        List {
+            if !viewModel.searchedStreamers.isEmpty {
+                Section(header: Text("Searched Streamers")) {
+                    ForEach(viewModel.searchedStreamers) { streamer in
+                        NavigationLink(destination: StreamerDetailScreen(streamer: streamer)) {
+                            StreamerRow(streamer: streamer)
+                        }
+                    }
+                }
+            }
+            if !viewModel.favoriteStreamers.isEmpty {
+                Section(header: Text("Favorite Streamers")) {
+                    ForEach(viewModel.favoriteStreamers) { streamer in
+                        NavigationLink(destination: StreamerDetailScreen(streamer: streamer)) {
+                            StreamerRow(streamer: streamer)
+                        }
+                    }
+                }
+            }
+            if !viewModel.recommendStreamers.isEmpty {
+                Section(header: Text("Recommend Streamers")) {
+                    ForEach(viewModel.favoriteStreamers) { streamer in
+                        NavigationLink(destination: StreamerDetailScreen(streamer: streamer)) {
+                            StreamerRow(streamer: streamer)
+                        }
+                    }
                 }
             }
         }
@@ -89,36 +92,4 @@ struct StreamerSearchScreen: View {
 
 #Preview {
     StreamerSearchScreen()
-}
-
-class StreamerSearchViewModel: ObservableObject {
-    let favoriteStreamers = [
-        TestData.testStreamer,
-        TestData.testStreamer,
-        TestData.testStreamer,
-        TestData.testStreamer
-    ]
-
-    let recommendStreamers = [
-        TestData.testStreamer,
-        TestData.testStreamer,
-        TestData.testStreamer,
-        TestData.testStreamer
-    ]
-
-    @Published var searchedStreamers: [Streamer] = []
-
-    func getSearchedStreamers(_ searchText: String) async {
-        searchedStreamers = []
-
-        let result = [
-            TestData.testStreamer,
-            TestData.testStreamer,
-            TestData.testStreamer
-        ]
-
-        try? await Task.sleep(for: .seconds(2))
-
-        searchedStreamers.append(contentsOf: result)
-    }
 }

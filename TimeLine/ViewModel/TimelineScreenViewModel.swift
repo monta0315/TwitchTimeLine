@@ -14,12 +14,12 @@ class TimelineScreenViewModel: ObservableObject {
         }
     }
 
-    var isLoading = false
-
     @Published var today: [Video] = []
     @Published var yesterday: [Video] = []
     @Published var aWeek: [Video] = []
     @Published var past: [Video] = []
+
+    private let supabaseClient = SupabaseManager.shared
 
     private func splitVideos() {
         // TODO: Need to clean logic
@@ -39,7 +39,6 @@ class TimelineScreenViewModel: ObservableObject {
 
     func getTimelineVideos() async {
         // TODO: Will update to handle result function
-        isLoading = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [self] in // Simulate API call delay
             self.videos = [
                 TestData.testVideo(),
@@ -55,7 +54,6 @@ class TimelineScreenViewModel: ObservableObject {
                 TestData.testVideo(),
                 TestData.testVideo(),
             ]
-            self.isLoading = false
         }
     }
 }
