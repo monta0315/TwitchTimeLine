@@ -36,7 +36,7 @@ struct StreamerSearchScreen: View {
             .onSubmit {
                 Task {
                     isLoading = true
-                    await viewModel.getSearchedStreamers(searchText)
+                    await viewModel.fetchStreamers(searchText)
                     isLoading = false
                 }
             }

@@ -17,9 +17,9 @@ struct StreamerRow: View {
             VStack(alignment: .leading) {
                 Text(streamer.name)
                     .font(.headline)
-                Text(streamer.games.joined(separator: ", "))
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
+//                Text(streamer.games.joined(separator: ", "))
+//                    .font(.subheadline)
+//                    .foregroundColor(.gray)
             }
             Spacer()
             Image(systemName: "star.fill")

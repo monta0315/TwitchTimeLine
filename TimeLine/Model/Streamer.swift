@@ -7,13 +7,14 @@
 
 import SwiftUI
 
-struct Streamer: Identifiable {
-    let id = UUID()
+struct Streamer: Identifiable, Codable {
     let name: String
-    let games: [String]
-    let profileImageUrl: String
-    let socialMediaLinks: [SocialMediaLink]
-    let recentVideos: [Video]
+    let description: String
+    let external_id: String
+    let id: UUID
+    let login: String
+    let profile_image_url: String?
+    let created_at: Date?
 }
 
 struct SocialMediaLink: Identifiable {

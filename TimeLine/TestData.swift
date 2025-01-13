@@ -13,8 +13,8 @@ let sampleVideoUrl = "https://www.twitch.tv/videos/2334640849"
 
 
 enum TestData {
-    static let testStreamer = Streamer(name: "test", games: ["APEX, VALORANT"], profileImageUrl: sampleImageUrl, socialMediaLinks: [socialMediaLink, socialMediaLink, socialMediaLink], recentVideos: [testVideo(), testVideo(), testVideo()])
-    static func testVideo() -> Video { 
+    static let testStreamer = Streamer(name: "test", description: "test", external_id: "aa", id: UUID(), login: "", profile_image_url: "", created_at: Date())
+    static func testVideo() -> Video {
         let randomDate = { Calendar.current.date(byAdding: .day, value: -Int.random(in: 0...15), to: Date())!}()
         return Video(title: "本番！- でびくら杯 本選日", category: "Game", thumbnailImage: sampleImageUrl, videoURL: sampleVideoUrl, viewCount: 30000, streamerName: "Laz", started_at: randomDate)
     }
